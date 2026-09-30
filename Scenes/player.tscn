@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cpvmpoxcmmahu"]
+
+[ext_resource type="Script" uid="uid://1aw2x1gkjagh" path="res://Scripts/player.gd" id="1_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://cucrfl5ltvg6q" path="res://icon.svg" id="1_v0iea"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_820sd"]
+radius = 34.234486
+
+[node name="Player" type="Node2D" unique_id=2006034689]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_cvnsp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=10343393]
+texture = ExtResource("1_v0iea")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=975504550]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=714640660]
+shape = SubResource("CircleShape2D_820sd")
+debug_color = Color(0.9647059, 0.16862746, 0, 0.41960785)

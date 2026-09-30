@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://c7jtyx3gq4es3"]
+
+[ext_resource type="Script" uid="uid://bla5j6qtj8rdj" path="res://Scenes/bullet.gd" id="1_oduel"]
+[ext_resource type="Texture2D" uid="uid://cucrfl5ltvg6q" path="res://icon.svg" id="1_xjght"]
+
+[node name="Bullet" type="Node2D" unique_id=240260669]
+script = ExtResource("1_oduel")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1484840428]
+modulate = Color(0, 0, 1, 1)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_xjght")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=834005612]
+target_position = Vector2(0, 15)
+collide_with_areas = true
+collide_with_bodies = false

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://duu5nh5bvh5sy"]
+
+[ext_resource type="Script" uid="uid://vmpylmncbvew" path="res://Scripts/game.gd" id="1_ebmjs"]
+[ext_resource type="PackedScene" uid="uid://cpvmpoxcmmahu" path="res://Scenes/player.tscn" id="2_qxrlw"]
+[ext_resource type="PackedScene" uid="uid://bcpeystlueek8" path="res://Scenes/enemy.tscn" id="3_wrm1d"]
+
+[node name="Game" type="Node2D" unique_id=756038420]
+script = ExtResource("1_ebmjs")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=190200698]
+offset_left = -12.0
+offset_top = -12.0
+offset_right = 1164.0
+offset_bottom = 663.0
+
+[node name="Player" parent="." unique_id=2006034689 instance=ExtResource("2_qxrlw")]
+
+[node name="Enemy" parent="." unique_id=355030463 instance=ExtResource("3_wrm1d")]
+position = Vector2(200, 200)
