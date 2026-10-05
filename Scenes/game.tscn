@@ -17,3 +17,5 @@ offset_bottom = 663.0
 
 [node name="Enemy" parent="." unique_id=355030463 instance=ExtResource("3_wrm1d")]
 position = Vector2(200, 200)
+
+[connection signal="shoot" from="Player" to="." method="_on_player_shoot"]

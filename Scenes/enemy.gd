@@ -1,20 +1,27 @@
 extends Node2D
-
-var bullet_scene = preload("res://Scenes/bullet.tscn")
+var bulletScene = preload("res://Scenes/bullet.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	$Timer.set_wait_time(1)
+	$Timer.start()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	# Rotation speed.
 	rotate(.1)
+	self.position.y += 5 * delta
+
+# Code for spawning the bullets.
+func spawnBullets() -> void:
 	
-	# Code for spawning the bullets.
-	var bullet = bullet_scene.instantiate()
-	bullet.position = self.position
-	bullet.rotation = self.rotation
-	# Offset the bullet for debugging
-	#bullet.position.x += 100
-	get_parent().add_child(bullet)
+	var bullet1 = bulletScene.instantiate()
+	bullet1.position = self.position
+	bullet1.rotation = self.rotation
+	
+	get_parent().add_child(bullet1)
+
+
+func _on_timer_timeout() -> void:
+	spawnBullets()
+	print("Timer Timeout") 
