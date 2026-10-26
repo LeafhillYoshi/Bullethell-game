@@ -24,9 +24,6 @@ func _process(delta: float) -> void:
 		get_parent().remove_child(self)
 		queue_free()
 	
-#	if (position.y > get_viewport_rect().size.y + 200):
-#		get_parent().remove_child(self)
-#		queue_free()
 
 # Code for spawning the bullets.
 func spawnBullets() -> void:

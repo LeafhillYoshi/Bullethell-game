@@ -13,14 +13,14 @@ func _physics_process(delta: float) -> void:
 	self.position += direction * delta * bulletSpeed
 	
 	if($RayCast2D.is_colliding()):
-		var collider = $RayCast2D.get_collider().get_parent()
-		if (collider.type == "PLAYER"):
+		var target = $RayCast2D.get_collider().get_parent()
+		if (target.type == "PLAYER"):
 			print("Hit!")
-			position += Vector2(2000, 2000)
-			if (collider.health > 0):
-				collider.health -= 1
-				print(collider.health)
-				collider.updateStatus()
+			queue_free()
+			if (target.health > 0):
+				target.health -= 1
+				print(target.health)
+				target.updateStatus()
 		
 func screenExcited() -> void:
 	get_parent().remove_child(self)

@@ -1,20 +1,20 @@
 [gd_scene format=3 uid="uid://ba4o6ximp70n4"]
 
 [ext_resource type="Script" uid="uid://icon7tr48ceh" path="res://Scripts/playerBullet.gd" id="1_mlkjt"]
-[ext_resource type="Texture2D" uid="uid://cucrfl5ltvg6q" path="res://icon.svg" id="2_befrx"]
+[ext_resource type="Texture2D" uid="uid://bvytulkiyshm5" path="res://textures/playerBullet.svg" id="2_mlkjt"]
 
 [node name="PlayerBullet" type="Area2D" unique_id=1024233854]
 script = ExtResource("1_mlkjt")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1484840428]
 modulate = Color(0, 1, 0, 1)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_befrx")
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_mlkjt")
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=834005612]
-position = Vector2(-13, 0)
-rotation = -1.5707964
-scale = Vector2(1.8, 1.8)
+position = Vector2(0, 17)
+rotation = 3.1415927
+scale = Vector2(2.27, 2.27)
 target_position = Vector2(0, 15)
 collide_with_areas = true
 collide_with_bodies = false

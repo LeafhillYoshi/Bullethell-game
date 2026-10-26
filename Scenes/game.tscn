@@ -15,6 +15,7 @@ offset_right = 1164.0
 offset_bottom = 663.0
 
 [node name="Player" parent="." unique_id=2006034689 instance=ExtResource("2_qxrlw")]
+position = Vector2(292, 595)
 
 [node name="EnemySpawn" type="Node2D" parent="." unique_id=1097877645]
 scale = Vector2(0.5, 0.5)
