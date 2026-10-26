@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://vmpylmncbvew" path="res://Scripts/game.gd" id="1_ebmjs"]
 [ext_resource type="PackedScene" uid="uid://cpvmpoxcmmahu" path="res://Scenes/player.tscn" id="2_qxrlw"]
-[ext_resource type="PackedScene" uid="uid://bcpeystlueek8" path="res://Scenes/enemy.tscn" id="3_wrm1d"]
+[ext_resource type="Script" uid="uid://c6mxyx4ihcqdh" path="res://Scripts/EnemySpawn.gd" id="3_wrm1d"]
+[ext_resource type="FontFile" uid="uid://dp1sp41de1t5g" path="res://VT323-Regular.ttf" id="4_3dryh"]
 
 [node name="Game" type="Node2D" unique_id=756038420]
 script = ExtResource("1_ebmjs")
@@ -15,7 +16,30 @@ offset_bottom = 663.0
 
 [node name="Player" parent="." unique_id=2006034689 instance=ExtResource("2_qxrlw")]
 
-[node name="Enemy" parent="." unique_id=355030463 instance=ExtResource("3_wrm1d")]
-position = Vector2(200, 200)
+[node name="EnemySpawn" type="Node2D" parent="." unique_id=1097877645]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("3_wrm1d")
 
-[connection signal="shoot" from="Player" to="." method="_on_player_shoot"]
+[node name="Timer" type="Timer" parent="EnemySpawn" unique_id=73129523]
+
+[node name="HealthMeter" type="Label" parent="." unique_id=366803831]
+offset_left = 987.0
+offset_top = 2.0
+offset_right = 1151.0
+offset_bottom = 41.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_3dryh")
+theme_override_font_sizes/font_size = 32
+text = "5 / 5"
+
+[node name="Score" type="Label" parent="." unique_id=1801080911]
+offset_left = 986.0
+offset_top = 39.0
+offset_right = 1071.0
+offset_bottom = 72.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_3dryh")
+theme_override_font_sizes/font_size = 32
+text = "\"0\""
+
+[connection signal="timeout" from="EnemySpawn/Timer" to="EnemySpawn" method="_on_timer_timeout"]

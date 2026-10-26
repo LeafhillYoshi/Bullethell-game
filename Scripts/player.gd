@@ -1,47 +1,37 @@
 extends CharacterBody2D
+class_name Player
 
-@export var speed: int = 400
-signal shoot(bullet, direction, location)
+var type = "PLAYER"
+var health = 5
+@export var speed = 400
+var playerBullet = load("res://Scenes/playerBullet.tscn")
 
-var bulletScene = preload("res://Scenes/bullet.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$Timer.set_wait_time(1)
-	$Timer.start()
-
-
-## func spawnBullets() -> void:
-##	
-##	var bullet = bulletScene.instantiate()
-##	bullet.position = self.position
-##	bullet.dir = Vector2(0, -2)
-##	# Offset the bullet for debugging
-##	bullet.position.y += -50
-##	# if Input.is_action_just_pressed("shoot"):
-##	#	get_parent().add_child(bullet)
-##	
-##	if Input.is_action_just_pressed("shoot"):
-##		get_parent().add_child(bullet)
+	pass
 
 #Functions handling input
-func getMovementInput():
+func getMovementInput(speed):
+	speed = speed
 	var inputDirection = Input.get_vector("left", "right", "up", "down")
 	velocity = inputDirection * speed
 
-func getShootingInput(event):
-	if event is InputEventKey:
-		if event.button_index == KEY_SPACE and event.pressed:
-			shoot.emit(bulletScene, rotation, position)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta: float) -> void:
-	getMovementInput()
-	move_and_slide()
 
 func _process(delta: float) -> void:
-	# spawnBullets()
-	pass
+	
+	getMovementInput(speed)
+	move_and_slide()
+	
+	if (health == 0):
+		get_parent().remove_child(self)
+
+#	self.position = get_global_mouse_position()
+
+	if (Input.is_action_just_pressed("shoot")):
+		var bullet = playerBullet.instantiate()
+		get_parent().add_child(bullet)
+		bullet.position = self.position
 
 
-func _on_timer_timeout() -> void:
-	pass
+func updateStatus() -> void:
+	get_parent().get_node("HealthMeter").text = get_parent().healthStatus[health]

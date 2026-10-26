@@ -1,13 +1,14 @@
 [gd_scene format=3 uid="uid://bcpeystlueek8"]
 
-[ext_resource type="Script" uid="uid://qqd6x5q86b1q" path="res://Scenes/enemy.gd" id="1_1f0kj"]
+[ext_resource type="Script" uid="uid://qqd6x5q86b1q" path="res://Scripts/enemy.gd" id="1_1f0kj"]
 [ext_resource type="Texture2D" uid="uid://cucrfl5ltvg6q" path="res://icon.svg" id="1_hghv2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_820sd"]
 size = Vector2(58, 57)
 
-[node name="Enemy" type="Node2D" unique_id=355030463]
+[node name="Enemy" type="Node2D" unique_id=434226735]
 script = ExtResource("1_1f0kj")
+metadata/_custom_type_script = "uid://qqd6x5q86b1q"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2077622936]
 modulate = Color(0, 0, 0, 1)
